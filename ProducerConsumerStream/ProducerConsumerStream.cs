@@ -63,7 +63,7 @@ namespace Nito.ProducerConsumerStream
         private bool Empty => _currentBytes == 0;
         private bool Full => _currentBytes == _maxBytes;
         private int AvailableToWrite => _maxBytes - _currentBytes;
-        private int AvailableToRead => _data.First.Value.Length - _headDataBytesRead;
+        private int AvailableToRead => _data.First.Count > 0 ? _data.First.Value.Length - _headDataBytesRead;
         private long WriterPosition { get; set; }
         private long ReaderPosition { get; set; }
 
